@@ -26,14 +26,15 @@ import { Page,
          UpTimePost,
          ContentPostThread,
          TextoCustomizavel,
-         Iconn,
-         DivInteractions
+         DivInteractions,
+         ContainerDownload,
+         ButtonDownload
        } from "./styled"
 import threads from '../../../src/assets/images/threads.png'
 import photoProfile from '../../../src/assets/images/Imagem do WhatsApp de 2024-11-13 à(s) 14.19.36_ce53ed46.png'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faInstagram} from '@fortawesome/free-brands-svg-icons'
-import {faComment, faEllipsis, faHeart, faPlus, faShare,} from '@fortawesome/free-solid-svg-icons'
+import {faComment, faEllipsis, faHeart, faPaperPlane, faPlus} from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react"
 
 
@@ -63,7 +64,7 @@ const [ThreadsOuRespostas, SetThreadsOuRespostas] = useState<string>("threads")
                         </InfoAccount>
                             
                         <PhotoDiv>
-                            <PhotoProfile WidthPhoto='80px' src={photoProfile} />
+                            <PhotoProfile heightPhoto="80px" WidthPhoto='80px' src={photoProfile} />
                         </PhotoDiv>
                     </Header>
 
@@ -132,13 +133,28 @@ const [ThreadsOuRespostas, SetThreadsOuRespostas] = useState<string>("threads")
                                <DivInteractions>
                                     <FontAwesomeIcon icon={faHeart} />
                                     <FontAwesomeIcon icon={faComment} />
-                                    <FontAwesomeIcon icon={faShare} />
+                                    <FontAwesomeIcon icon={faPaperPlane} />
                                </DivInteractions>
 
                             </ContentPostThread>
 
                         </DivPostThreadsContainer> 
-                    </ContainerThreads>
+                    
+                        <ContainerDownload>
+                            
+                            <LogoImg left="" WidthImg='60px' HeightImg='60px' src={threads}  alt="Logo"/>
+                            <PhotoProfile border="yes" left="24px" WidthPhoto="40px" heightPhoto="40px" top="-35px" src={photoProfile} />
+
+                            <TextoCustomizavel font="Roboto" top="15px" color="grey" size="14px">
+                                Baixe o app Threads para ver mais de pproenca
+                            </TextoCustomizavel>
+
+                            <ButtonDownload>BAIXAR THREADS</ButtonDownload>
+
+                        </ContainerDownload>
+                        
+                     </ContainerThreads>
+                    
                </ContainerPage>
 
 

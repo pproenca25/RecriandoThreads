@@ -4,10 +4,16 @@ interface LogoImgType{
     WidthImg?: string
     HeightImg?: string
     BorderRadius?: string
+    left?: string
 }
 
 interface PhotoProfileType{
-    WidthPhoto: string
+    WidthPhoto?: string
+    top?: string
+    heightPhoto?: string
+    left?: string
+    border?: string
+
 }
 
 interface CustomTextType{
@@ -16,6 +22,7 @@ interface CustomTextType{
     font?: string
     weight?: string
     lineHeight?: string
+    top?: string
 }
 
 interface IconType{
@@ -35,8 +42,8 @@ export const Page = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: black;
-    padding-top: 20px;
+    background-color: #0a0a0a;
+    padding: 20px 0px;
     width: 100%;
     height: 100vh;
     color: white;
@@ -77,6 +84,7 @@ export const LogoImg = styled.img<LogoImgType>`
     width:${(props) => props.width};
     height: ${(props) => props.HeightImg};
     border-radius:${(props) => props.BorderRadius ? props.BorderRadius : '50px'}
+    margin-left:${(props) => props.left ? props.left : '0px'};
 `;
 
 export const Nome = styled.h1`
@@ -133,9 +141,12 @@ export const PhotoDiv = styled.div`
 export const PhotoProfile = styled.img<PhotoProfileType>`
     border-radius: 50%;
     width: 100%;
-    max-width: 85px;
+    border: ${(props) => props.border === 'yes' ? '3px solid black' : ''};
+    max-width: ${(props) => props.WidthPhoto};
     height: 100%;
-    max-height: 85px;
+    max-height: ${(props) => props.heightPhoto ? props.heightPhoto : '0px'};
+    margin-top: ${(props) => props.top ? props.top : ''};
+    margin-left: ${(props) => props.left ? props.left : '0px'} ;
     
 `;
 
@@ -219,7 +230,7 @@ export const DivThreadsOuRespostas = styled.div<DivThreadsOuRespostasType>`
 
 export const ContainerThreads = styled.div<ContainerThreadsType>`
     display: flex;
-    flex-direction:row;
+    flex-direction:column;
     width: 100%;
     display: ${(props) => props.display ? props.display : "flex"} ;
     padding-top: 30px;
@@ -280,14 +291,10 @@ export const TextoCustomizavel = styled.h3<CustomTextType>`
     font-size: ${(props) => props.size ? props.size : '12px'};
     font-weight: ${(props) => props.weight ? props.weight : '400'};
     line-height:${(props) => props.lineHeight ? props.lineHeight : '1'} ;
+    margin-top: ${(props) => props.top ? props.top : ''};
 
 `;
 
-export const Iconn = styled.img<IconType>`
-    width: 100%;
-    max-width: ${(props) => props.width ? props.width : '23px'};
-    color: ${(props) => props.color};
-`;
 
 export const DivInteractions = styled.div`
     display: flex;
@@ -295,4 +302,32 @@ export const DivInteractions = styled.div`
     margin-top: 12px;
     gap: 12px;
     padding: 5px 0px;
+`;
+
+export const ContainerDownload = styled.div`
+    background-color: black;
+    margin-top: 35px ;
+    width: 100%;
+    border-radius: 25px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+`;
+
+export const ButtonDownload = styled.button`
+    border: 1px solid grey;
+    border-radius: 8px;
+    outline: 0;
+    margin: 0;
+    height: 65px;
+    width: 150px;
+    font-family: 'Roboto';
+    font-size: 13px;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    margin-top: 20px;
+      
 `;
